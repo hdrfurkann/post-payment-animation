@@ -1,0 +1,281 @@
+@import url("https://fonts.googleapis.com/css?family=Lexend+Deca&display=swap");
+
+:root {
+    --background: #ebebeb;
+    --sol-bolum: #EE3124;
+    --bilgi-karti: #c7ffbc;
+    --bilgi-karti-cizgi: #EE3124;
+    --islem-dugme-rengi-3: #F79E1B;
+    --islem-dugme-rengi-2: #FF5F00;
+    --islem-dugme-rengi-1: #EE3124;
+    --odeme-gonderisi: #dddde0;
+    --sayisal-degerler: #838183;
+    --sayisal-degerler-2: #aaa9ab;
+    --odeme-gonderisi-cizgi: #757375;
+    --odeme-gonderisi-cizgi2: #545354;
+    --fiyat-etiketi: #EE3124;
+}
+
+html {
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    width: 100%;
+    background: var(--background);
+}
+
+.kapsayici {
+    background-color: #ffffff;
+    display: flex;
+    width: 460px;
+    height: 120px;
+    position: relative;
+    border-radius: 6px;
+    transition: 0.3s ease-in-out;
+}
+
+.kapsayici:before {
+    width: 200vw;
+    position: absolute;
+    top: 0;
+    left: -100vw;
+    height: 100%;
+    content: "";
+}
+
+.kapsayici:hover {
+    transform: scale(1.03);
+    width: 220px;
+}
+
+.kapsayici:hover .sol-bolum {
+    width: 100%;
+}
+
+.sol-bolum {
+    background-color: var(--sol-bolum);
+    width: 130px;
+    height: 120px;
+    border-radius: 4px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.3s;
+    flex-shrink: 0;
+    overflow: hidden;
+}
+
+.sag-bolum {
+    width: calc(100% - 130px);
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    cursor: pointer;
+    justify-content: space-between;
+    white-space: nowrap;
+    transition: 0.3s;
+}
+
+.sag-bolum:hover {
+    background-color: #f9f7f9;
+}
+
+.yon-ok {
+    width: 20px;
+    height: 20px;
+    margin-right: 20px;
+}
+
+.yeni-odeme {
+    font-size: 23px;
+    font-family: "Lexend Deca", sans-serif;
+    margin-left: 20px;
+}
+
+.bilgi-karti {
+    width: 70px;
+    height: 46px;
+    background-color: var(--bilgi-karti);
+    border-radius: 6px;
+    position: absolute;
+    display: flex;
+    z-index: 10;
+    flex-direction: column;
+    align-items: center;
+}
+
+.bilgi-karti-cizgi {
+    width: 65px;
+    height: 13px;
+    background-color: var(--bilgi-karti-cizgi);
+    border-radius: 2px;
+    margin-top: 7px;
+}
+
+@media only screen and (max-width: 480px) {
+    .kapsayici {
+        transform: scale(0.7);
+    }
+
+    .kapsayici:hover {
+        transform: scale(0.74);
+    }
+
+    .yeni-odeme {
+        font-size: 18px;
+    }
+}
+
+.islem-dugmeleri {
+    width: 8px;
+    height: 8px;
+    background-color: var(--islem-dugme-rengi-2);
+    box-shadow: 0 -10px 0 0 var(--islem-dugme-rengi-3), 0 10px 0 0 var(--islem-dugme-rengi-1);
+    border-radius: 50%;
+    margin-top: 5px;
+    transform: rotate(90deg);
+    margin: 10px 0 0 -30px;
+}
+
+.kapsayici:hover .bilgi-karti {
+    animation: slide-top 1.2s cubic-bezier(0.645, 0.045, 0.355, 1) both;
+}
+
+.kapsayici:hover .odeme-gonderisi {
+    animation: slide-post 1s cubic-bezier(0.165, 0.84, 0.44, 1) both;
+}
+
+@keyframes slide-top {
+    0% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+
+    50% {
+        -webkit-transform: translateY(-70px) rotate(90deg);
+        transform: translateY(-70px) rotate(90deg);
+    }
+
+    60% {
+        -webkit-transform: translateY(-70px) rotate(90deg);
+        transform: translateY(-70px) rotate(90deg);
+    }
+
+    100% {
+        -webkit-transform: translateY(-8px) rotate(90deg);
+        transform: translateY(-8px) rotate(90deg);
+    }
+}
+
+.odeme-gonderisi {
+    width: 63px;
+    height: 75px;
+    background-color: var(--odeme-gonderisi);
+    position: absolute;
+    z-index: 11;
+    bottom: 10px;
+    top: 120px;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.odeme-gonderisi-cizgi {
+    width: 47px;
+    height: 9px;
+    background-color: var(--odeme-gonderisi-cizgi2);
+    position: absolute;
+    border-radius: 0px 0px 3px 3px;
+    right: 8px;
+    top: 8px;
+}
+
+.odeme-gonderisi-cizgi:before {
+    content: "";
+    position: absolute;
+    width: 47px;
+    height: 9px;
+    background-color: var(--odeme-gonderisi-cizgi);
+    top: -8px;
+}
+
+.goruntu-ekrani {
+    width: 47px;
+    height: 23px;
+    background-color: #ffffff;
+    position: absolute;
+    top: 22px;
+    right: 8px;
+    border-radius: 3px;
+}
+
+.sayisal-degerler {
+    width: 12px;
+    height: 12px;
+    background-color: var(--sayisal-degerler);
+    box-shadow: 0 -18px 0 0 var(--sayisal-degerler), 0 18px 0 0 var(--sayisal-degerler);
+    border-radius: 2px;
+    position: absolute;
+    transform: rotate(90deg);
+    left: 25px;
+    top: 52px;
+}
+
+.sayisal-degerler-cizgi2 {
+    width: 12px;
+    height: 12px;
+    background-color: var(--sayisal-degerler-2);
+    box-shadow: 0 -18px 0 0 var(--sayisal-degerler-2), 0 18px 0 0 var(--sayisal-degerler-2);
+    border-radius: 2px;
+    position: absolute;
+    transform: rotate(90deg);
+    left: 25px;
+    top: 68px;
+}
+
+@keyframes slide-post {
+    50% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+
+    100% {
+        -webkit-transform: translateY(-70px);
+        transform: translateY(-70px);
+    }
+}
+
+.fiyat-etiketi {
+    position: absolute;
+    font-size: 16px;
+    font-family: "Lexend Deca", sans-serif;
+    width: 100%;
+    left: 0;
+    top: 0;
+    color: var(--fiyat-etiketi);
+    text-align: center;
+}
+
+.kapsayici:hover .fiyat-etiketi {
+    animation: fade-in-fwd 0.3s 1s backwards;
+}
+
+@keyframes fade-in-fwd {
+    0% {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
